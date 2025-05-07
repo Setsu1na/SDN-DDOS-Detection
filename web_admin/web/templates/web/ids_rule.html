@@ -1,0 +1,470 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+<title>首页 - 悟空后台管理系统</title>
+<link rel="icon" href="/static/favicon.ico" type="image/ico">
+<meta name="keywords" content="LightYear,光年,后台模板,后台管理系统,光年HTML模板">
+<meta name="description" content="LightYear是一个基于Bootstrap v3.3.7的后台管理系统的HTML模板。">
+<meta name="author" content="yinqi">
+<link href="/static/css/bootstrap.min.css" rel="stylesheet">
+<link href="/static/css/materialdesignicons.min.css" rel="stylesheet">
+<link href="/static/css/style.min.css" rel="stylesheet">
+<!-- Font Awesome Icons -->
+<link rel="stylesheet" href="{% static "plugins/fontawesome-free/css/all.min.css" %}">
+<!-- toastr -->
+<link rel="stylesheet" href="{% static "plugins/toastr/toastr.min.css" %}">
+</head>
+  
+<body>
+<div class="lyear-layout-web">
+  <div class="lyear-layout-container">
+    <!--左侧导航-->
+    <aside class="lyear-layout-sidebar">
+      
+      <!-- logo -->
+      <div id="logo" class="sidebar-header">
+        <a href="/web/index"><img src="/static/images/logo-sidebar.png" title="LightYear" alt="LightYear" /></a>
+      </div>
+      <div class="lyear-layout-sidebar-scroll"> 
+        
+        <nav class="sidebar-main">
+          <ul class="nav nav-drawer">
+            <li class="nav-item active"> <a href="/web/index"><i class="mdi mdi-home"></i> 后台首页</a> </li>
+            <li class="nav-item nav-item-has-subnav">
+              <a href="#"><i class="mdi mdi-comment-processing-outline"></i>日志管理</a>
+              <ul class="nav nav-subnav">
+                <li> <a href="/web/firewall_log" id="firewall_log">防火墙日志</a> </li>
+                <li> <a href="/web/ids_log" id="ids_log">入侵检测日志</a> </li>
+                <li> <a href="/web/admin_log" id="admin_log">管理日志</a> </li>
+              </ul>
+            </li>
+            <li class="nav-item nav-item-has-subnav">
+              <a href="#"><i class="mdi mdi-format-align-justify"></i> 规则管理</a>
+              <ul class="nav nav-subnav">
+                <li> <a href="/web/firewall_rule" id="firewall_rule">防火墙规则</a> </li>
+                <li> <a href="/web/ids_rule" id="ids_rule">入侵检测规则</a> </li>
+              </ul>
+            </li>
+            <li class="nav-item active"> <a href="/web/traffic_statistic" id="traffic_statistic"><i class="mdi mdi-chart-bar"></i> 流量统计</a> </li>
+            <li class="nav-item active"> <a href="/web/node_state" id="node_state"><i class="mdi mdi-octagram"></i> 节点状态</a> </li>
+            <li class="nav-item active"> <a href="/web/system_test" id="system_test"><i class="mdi mdi-wrench"></i> 系统测试</a> </li>                        
+          </ul>
+        </nav>
+        
+      </div>
+      
+    </aside>
+    <!--End 左侧导航-->
+    
+    <!--头部信息-->
+    <header class="lyear-layout-header">
+      
+      <nav class="navbar navbar-default">
+        <div class="topbar">
+          
+          <div class="topbar-left">
+            <div class="lyear-aside-toggler">
+              <span class="lyear-toggler-bar"></span>
+              <span class="lyear-toggler-bar"></span>
+              <span class="lyear-toggler-bar"></span>
+            </div>
+            <span class="navbar-page-title"> 规则管理-入侵检测规则 </span>
+          </div>
+          
+          <ul class="topbar-right">
+            <li class="dropdown dropdown-profile">
+              <a href="javascript:void(0)" data-toggle="dropdown">
+                <img class="img-avatar img-avatar-48 m-r-10" src="/static/images/users/avatar.jpg" alt="悟空" />
+                <span>悟空 <span class="caret"></span></span>
+              </a>
+              <ul class="dropdown-menu dropdown-menu-right">
+                <li> <a href="lyear_pages_profile.html"><i class="mdi mdi-account"></i> 个人信息</a> </li>
+                <li> <a href="lyear_pages_edit_pwd.html"><i class="mdi mdi-lock-outline"></i> 修改密码</a> </li>
+                <li> <a href="javascript:void(0)"><i class="mdi mdi-delete"></i> 清空缓存</a></li>
+                <li class="divider"></li>
+                <li> <a href="lyear_pages_login.html"><i class="mdi mdi-logout-variant"></i> 退出登录</a> </li>
+              </ul>
+            </li>
+            <!--切换主题配色-->
+        <li class="dropdown dropdown-skin">
+        <span data-toggle="dropdown" class="icon-palette"><i class="mdi mdi-palette"></i></span>
+        <ul class="dropdown-menu dropdown-menu-right" data-stopPropagation="true">
+                <li class="drop-title"><p>主题</p></li>
+                <li class="drop-skin-li clearfix">
+                  <span class="inverse">
+                    <input type="radio" name="site_theme" value="default" id="site_theme_1" checked>
+                    <label for="site_theme_1"></label>
+                  </span>
+                  <span>
+                    <input type="radio" name="site_theme" value="dark" id="site_theme_2">
+                    <label for="site_theme_2"></label>
+                  </span>
+                  <span>
+                    <input type="radio" name="site_theme" value="translucent" id="site_theme_3">
+                    <label for="site_theme_3"></label>
+                  </span>
+                </li>
+          <li class="drop-title"><p>LOGO</p></li>
+        <li class="drop-skin-li clearfix">
+                  <span class="inverse">
+                    <input type="radio" name="logo_bg" value="default" id="logo_bg_1" checked>
+                    <label for="logo_bg_1"></label>
+                  </span>
+                  <span>
+                    <input type="radio" name="logo_bg" value="color_2" id="logo_bg_2">
+                    <label for="logo_bg_2"></label>
+                  </span>
+                  <span>
+                    <input type="radio" name="logo_bg" value="color_3" id="logo_bg_3">
+                    <label for="logo_bg_3"></label>
+                  </span>
+                  <span>
+                    <input type="radio" name="logo_bg" value="color_4" id="logo_bg_4">
+                    <label for="logo_bg_4"></label>
+                  </span>
+                  <span>
+                    <input type="radio" name="logo_bg" value="color_5" id="logo_bg_5">
+                    <label for="logo_bg_5"></label>
+                  </span>
+                  <span>
+                    <input type="radio" name="logo_bg" value="color_6" id="logo_bg_6">
+                    <label for="logo_bg_6"></label>
+                  </span>
+                  <span>
+                    <input type="radio" name="logo_bg" value="color_7" id="logo_bg_7">
+                    <label for="logo_bg_7"></label>
+                  </span>
+                  <span>
+                    <input type="radio" name="logo_bg" value="color_8" id="logo_bg_8">
+                    <label for="logo_bg_8"></label>
+                  </span>
+        </li>
+        <li class="drop-title"><p>头部</p></li>
+        <li class="drop-skin-li clearfix">
+                  <span class="inverse">
+                    <input type="radio" name="header_bg" value="default" id="header_bg_1" checked>
+                    <label for="header_bg_1"></label>                      
+                  </span>                                                    
+                  <span>                                                     
+                    <input type="radio" name="header_bg" value="color_2" id="header_bg_2">
+                    <label for="header_bg_2"></label>                      
+                  </span>                                                    
+                  <span>                                                     
+                    <input type="radio" name="header_bg" value="color_3" id="header_bg_3">
+                    <label for="header_bg_3"></label>
+                  </span>
+                  <span>
+                    <input type="radio" name="header_bg" value="color_4" id="header_bg_4">
+                    <label for="header_bg_4"></label>                      
+                  </span>                                                    
+                  <span>                                                     
+                    <input type="radio" name="header_bg" value="color_5" id="header_bg_5">
+                    <label for="header_bg_5"></label>                      
+                  </span>                                                    
+                  <span>                                                     
+                    <input type="radio" name="header_bg" value="color_6" id="header_bg_6">
+                    <label for="header_bg_6"></label>                      
+                  </span>                                                    
+                  <span>                                                     
+                    <input type="radio" name="header_bg" value="color_7" id="header_bg_7">
+                    <label for="header_bg_7"></label>
+                  </span>
+                  <span>
+                    <input type="radio" name="header_bg" value="color_8" id="header_bg_8">
+                    <label for="header_bg_8"></label>
+                  </span>
+        </li>
+        <li class="drop-title"><p>侧边栏</p></li>
+        <li class="drop-skin-li clearfix">
+                  <span class="inverse">
+                    <input type="radio" name="sidebar_bg" value="default" id="sidebar_bg_1" checked>
+                    <label for="sidebar_bg_1"></label>
+                  </span>
+                  <span>
+                    <input type="radio" name="sidebar_bg" value="color_2" id="sidebar_bg_2">
+                    <label for="sidebar_bg_2"></label>
+                  </span>
+                  <span>
+                    <input type="radio" name="sidebar_bg" value="color_3" id="sidebar_bg_3">
+                    <label for="sidebar_bg_3"></label>
+                  </span>
+                  <span>
+                    <input type="radio" name="sidebar_bg" value="color_4" id="sidebar_bg_4">
+                    <label for="sidebar_bg_4"></label>
+                  </span>
+                  <span>
+                    <input type="radio" name="sidebar_bg" value="color_5" id="sidebar_bg_5">
+                    <label for="sidebar_bg_5"></label>
+                  </span>
+                  <span>
+                    <input type="radio" name="sidebar_bg" value="color_6" id="sidebar_bg_6">
+                    <label for="sidebar_bg_6"></label>
+                  </span>
+                  <span>
+                    <input type="radio" name="sidebar_bg" value="color_7" id="sidebar_bg_7">
+                    <label for="sidebar_bg_7"></label>
+                  </span>
+                  <span>
+                    <input type="radio" name="sidebar_bg" value="color_8" id="sidebar_bg_8">
+                    <label for="sidebar_bg_8"></label>
+                  </span>
+        </li>
+        </ul>
+      </li>
+            <!--切换主题配色-->
+          </ul>
+          
+        </div>
+      </nav>
+      
+    </header>
+    <!--End 头部信息-->
+    
+    <!--页面主要内容-->
+    <main class="lyear-layout-content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="card text-sm">
+              <div class="card-header d-flex p-0">
+                <h3 class="card-title p-3"><div class='fas fa-edit'><b> 入侵检测规则管理</b><div></h3>
+                <ul class="nav nav-pills ml-auto p-2">
+                  <button class="btn btn-outline-primary" disabled type="button" data-toggle="modal" data-target="#modal-confirm" id="submit-modification"><small><i class="fas fa-upload"> 提交修改</i></small></button>
+                </ul>
+              </div>
+              <div class="card-body p-0">
+                <table class="table table-sm" id="ids-rule-table">
+                  <thead>
+                    <tr>
+                      <th style="width: 4rem"></th>
+                      <th style="width: 6rem">分类标签</th>
+                      <th style="width: 6rem">响应策略</th>
+                      <th style="width: 6rem">捕获数</th>
+                      <th style="width: 18rem">描述</th>
+                      <th style="width: 6rem">管理</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {% for threat in threats %}
+                      <tr>
+                        <td style="vertical-align: middle;"><canvas width="112" height="112" style="width: 60px; height: 60px;"
+                              class="chart" percent="{{ threat.percent }}" color="{{ threat.color }}"></canvas></td>
+                        <td style="vertical-align: middle;"><b><span class="rule-label">{{ threat.type }}</span></b></td>
+                        {% if threat.action == "alert" %}
+                          <td style="vertical-align: middle;"><span class="rule-action"><span class="badge bg-info">告警</span></span></td>
+                        {% elif threat.action == "redirect" %}
+                          <td style="vertical-align: middle;"><span class="rule-action"><span class="badge bg-primary">重定向</span></span></td>
+                        {% elif threat.action == "drop" %}
+                          <td style="vertical-align: middle;"><span class="rule-action"><span class="badge bg-danger">丢弃</span></span></td>
+                        {% else %}
+                          <td style="vertical-align: middle;"></td>
+                        {% endif %}
+                        <td style="vertical-align: middle;"><b>{{ threat.count }}</b></td>
+                        {% if threat.type == "Normal" %}
+                          <td style="vertical-align: middle;">正常流量</td>
+                        {% elif threat.type == "PortMap" %}
+                          <td style="vertical-align: middle;">针对PortMap(端口映射)的DDOS放大攻击</td>
+                        {% elif threat.type == "NetBIOS" %}
+                          <td style="vertical-align: middle;">针对NetBIOS(网络基本输入/输出系统协议)的DDOS放大攻击</td>
+                        {% elif threat.type == "LDAP" %}
+                          <td style="vertical-align: middle;">针对LDAP(轻型目录访问协议)的DDOS放大攻击</td>
+                        {% elif threat.type == "MSSQL" %}
+                          <td style="vertical-align: middle;">针对MSSQL(微软SQLServer数据库服务器)的DDOS放大攻击</td>
+                        {% elif threat.type == "UDPLag" %}
+                          <td style="vertical-align: middle;">破坏客户端和服务器之间连接的DDoS攻击</td>
+                        {% elif threat.type == "SYN" %}
+                          <td style="vertical-align: middle;">SYN FLOOD DDoS 攻击</td>
+                        {% elif threat.type == "UDP" %}
+                        <td style="vertical-align: middle;">UDP FLOOD DDoS 攻击</td>
+                        {% else %}
+                          <td></td>
+                        {% endif %}
+                        {% if threat.action != "NOACTION" %}
+                          <td style="vertical-align: middle;"><a href="javascript:void(0)"  class="fas fa-edit edit-rule" data-toggle="modal" data-target="#modal-edit-rule" style="margin:0 .5rem 0 0"><small> 编辑</small></a></td>
+                        {% else %}
+                          <td></td>
+                        {% endif %}
+                      </tr>
+                    {% endfor %}
+                  </tbody>
+                </table>
+              </div><!-- /.card-body -->                        
+            </div><!-- /.card -->
+          </div><!-- /.col -->
+        </div><!-- /.row -->
+
+        <!-- confirm dialog -->
+        <div class="modal fade" id="modal-confirm" style="display: none;" aria-modal="true">
+          <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+              <div class="modal-header">
+                <div class="modal-title"><b>提交修改</b></div>
+                <button type="button" class="close btn btn-default btn-sm" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">×</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col-sm-12">
+                      确认提交所有<span class="text-info"><b> 入侵检测规则 </b></span>？
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="modal-footer justify-content-flex-end">
+                <button type="button" class="btn btn-primary btn-sm" id="submit-modification-ok">确定</button>
+              </div>
+            </div><!-- /.modal-content -->
+          </div><!-- /.modal-dialog -->
+        </div><!-- modal -->
+        <!-- edit dialog (edit rule) -->
+        <div class="modal fade" id="modal-edit-rule" style="display: none;" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <div class="modal-title"><b>编辑入侵检测规则 <span class="text-secondary"> # <span id="edit-rule-label"></span></span></b></div>
+                <button type="button" class="close btn btn-default" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">×</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <div class="form-group">
+                        <label for="edit-rule-action">响应策略：</label>
+                          <div class="btn-group btn-group-toggle input-group" data-toggle="buttons" id="edit-rule-action">
+                            <label class="btn btn-outline-danger btn-sm" id="edit-rule-drop" data-action="drop">
+                              <input type="radio" autocomplete="off"> 丢弃
+                            </label>
+                            <label class="btn btn-outline-primary btn-sm" id="edit-rule-redirect" data-action="redirect">
+                              <input type="radio" autocomplete="off"> 重定向
+                            </label>
+                            <label class="btn btn-outline-info btn-sm" id="edit-rule-alert" data-action="alert">
+                              <input type="radio" autocomplete="off"> 告警
+                            </label>
+                          </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="modal-footer justify-content-flex-end">
+                <button type="button" class="btn btn-primary" id="edit-rule-ok">确定</button>
+              </div>
+            </div><!-- /.modal-content -->
+          </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
+        
+      </div>
+      
+    </main>
+    <!--End 页面主要内容-->
+  </div>
+</div>
+
+<script type="text/javascript" src="/static/js/jquery.min.js"></script>
+<script type="text/javascript" src="/static/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/static/js/perfect-scrollbar.min.js"></script>
+<script type="text/javascript" src="/static/js/main.min.js"></script>
+
+<!-- core -->
+<script src="{% static "core.js" %}"></script>
+
+<script>
+  var edit_records = [];
+  $(function() {
+    edit_records = [];
+    toastr.options = {positionClass:"toast-bottom-right",
+                      timeOut: "1500"};
+  });
+
+  /* submit modification */
+  $('#submit-modification-ok').click(function() {
+    $.ajax({
+      type: "POST",
+      url: "/core/submit/ids_rule/",
+      data: JSON.stringify({'rules':getIDSRuleTableData(), 'records':edit_records}),
+      beforeSend: function(xhr, settings) {
+        xhr.setRequestHeader("X-CSRFToken", "{{ csrf_token }}");
+      },
+      success: function(response) {
+        $('#modal-confirm').modal('hide');
+        $('#submit-modification').attr('disabled', "");
+        toastr.success("提交修改成功");
+      },
+      error: function() {
+        $('#modal-confirm').modal('hide');
+        toastr.error("提交修改失败，请检查服务器状态");
+      }
+    });
+  });
+
+  function getIDSRuleTableData() {
+    let rules = [];
+    $('#ids-rule-table tbody tr').each(function() {
+      let label = $(this).find('.rule-label').text();
+      let action = $(this).find('.rule-action').text();
+      action = action == "丢弃" ? "drop" : action == "重定向" ? "redirect" : action == "告警" ? "alert" : "NOACTION";
+
+      rules.push([label, action]);
+    });
+
+    return rules;
+  }
+
+  var old_action;
+  $('.edit-rule').click(function() {
+    $('#edit-rule-label').text($(this).parent().siblings(':nth-child(2)').text());
+    var old_action_text = $(this).parent().siblings(':nth-child(3)').text();
+    var old_action_btn;
+    if(old_action_text == "告警") {
+      old_action = "alert";
+      old_action_btn = $('#edit-rule-alert');
+    }
+    else if(old_action_text == "重定向") {
+      old_action = "redirect";
+      old_action_btn = $('#edit-rule-redirect');
+    }
+    else if(old_action_text == "丢弃") {
+      old_action = "drop";
+      old_action_btn = $('#edit-rule-drop');
+    }
+    old_action_btn.addClass('active');
+    old_action_btn.siblings().removeClass('active');
+  });
+
+  $('#edit-rule-ok').click(function() {
+    // action is always valid if everything's ok
+    var action = $('#edit-rule-action').find('.active').data('action');
+
+    if (action == old_action) {
+      toastr.warning("未检测到修改");
+      return;
+    }
+    
+    var rule_label = $('#edit-rule-label').text()
+    var rule = $('#ids-rule-table tbody tr td:contains("' + rule_label + '")').parent();
+    if(action == 'drop') {
+      rule.find('.rule-action').html("<span class=\"badge bg-danger\">丢弃</span>");
+    }
+    else if(action == 'redirect') {
+      rule.find('.rule-action').html("<span class=\"badge bg-primary\">重定向</span>");
+    }
+    else if(action == 'alert') {
+      rule.find('.rule-action').html("<span class=\"badge bg-info\">告警</span>");
+    }
+    
+    $('#modal-edit-rule').modal('hide');
+    $('#submit-modification').removeAttr('disabled');
+    edit_records.push([rule_label, action]);
+    toastr.info("编辑规则成功，本次修改尚未提交");
+  });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,884 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+<title>首页 - 悟空后台管理系统</title>
+<link rel="icon" href="/static/favicon.ico" type="image/ico">
+<meta name="keywords" content="LightYear,光年,后台模板,后台管理系统,光年HTML模板">
+<meta name="description" content="LightYear是一个基于Bootstrap v3.3.7的后台管理系统的HTML模板。">
+<meta name="author" content="yinqi">
+<link href="/static/css/bootstrap.min.css" rel="stylesheet">
+<link href="/static/css/materialdesignicons.min.css" rel="stylesheet">
+<link href="/static/css/style.min.css" rel="stylesheet">
+<!-- Font Awesome Icons -->
+<link rel="stylesheet" href="{% static "plugins/fontawesome-free/css/all.min.css" %}">
+<!-- toastr -->
+<link rel="stylesheet" href="{% static "plugins/toastr/toastr.min.css" %}">
+
+</head>
+  
+<body>
+<div class="lyear-layout-web">
+
+  <div class="lyear-layout-container">
+    <!--左侧导航-->
+    <aside class="lyear-layout-sidebar">
+      
+      <!-- logo -->
+      <div id="logo" class="sidebar-header">
+        <a href="/web/index"><img src="/static/images/logo-sidebar.png" title="LightYear" alt="LightYear" /></a>
+      </div>
+      <div class="lyear-layout-sidebar-scroll"> 
+        
+        <nav class="sidebar-main">
+          <ul class="nav nav-drawer">
+            <li class="nav-item active"> <a href="/web/index"><i class="mdi mdi-home"></i> 后台首页</a> </li>
+            <li class="nav-item nav-item-has-subnav">
+              <a href="#"><i class="mdi mdi-comment-processing-outline"></i>日志管理</a>
+              <ul class="nav nav-subnav">
+                <li> <a href="/web/firewall_log" id="firewall_log">防火墙日志</a> </li>
+                <li> <a href="/web/ids_log" id="ids_log">入侵检测日志</a> </li>
+                <li> <a href="/web/admin_log" id="admin_log">管理日志</a> </li>
+              </ul>
+            </li>
+            <li class="nav-item nav-item-has-subnav">
+              <a href="#"><i class="mdi mdi-format-align-justify"></i> 规则管理</a>
+              <ul class="nav nav-subnav">
+                <li> <a href="/web/firewall_rule" id="firewall_rule">防火墙规则</a> </li>
+                <li> <a href="/web/ids_rule" id="ids_rule">入侵检测规则</a> </li>
+              </ul>
+            </li>
+            <li class="nav-item active"> <a href="/web/traffic_statistic" id="traffic_statistic"><i class="mdi mdi-chart-bar"></i> 流量统计</a> </li>
+            <li class="nav-item active"> <a href="/web/node_state" id="node_state"><i class="mdi mdi-octagram"></i> 节点状态</a> </li>
+            <li class="nav-item active"> <a href="/web/system_test" id="system_test"><i class="mdi mdi-wrench"></i> 系统测试</a> </li>                        
+          </ul>
+        </nav>
+        
+
+      </div>
+      
+    </aside>
+    <!--End 左侧导航-->
+    
+    <!--头部信息-->
+    <header class="lyear-layout-header">
+      
+      <nav class="navbar navbar-default">
+        <div class="topbar">
+          
+          <div class="topbar-left">
+            <div class="lyear-aside-toggler">
+              <span class="lyear-toggler-bar"></span>
+              <span class="lyear-toggler-bar"></span>
+              <span class="lyear-toggler-bar"></span>
+            </div>
+            <span class="navbar-page-title"> 规则管理-防火墙规则 </span>
+          </div>
+          
+          <ul class="topbar-right">
+            <li class="dropdown dropdown-profile">
+              <a href="javascript:void(0)" data-toggle="dropdown">
+                <img class="img-avatar img-avatar-48 m-r-10" src="/static/images/users/avatar.jpg" alt="悟空" />
+                <span>悟空 <span class="caret"></span></span>
+              </a>
+              <ul class="dropdown-menu dropdown-menu-right">
+                <li> <a href="lyear_pages_profile.html"><i class="mdi mdi-account"></i> 个人信息</a> </li>
+                <li> <a href="lyear_pages_edit_pwd.html"><i class="mdi mdi-lock-outline"></i> 修改密码</a> </li>
+                <li> <a href="javascript:void(0)"><i class="mdi mdi-delete"></i> 清空缓存</a></li>
+                <li class="divider"></li>
+                <li> <a href="lyear_pages_login.html"><i class="mdi mdi-logout-variant"></i> 退出登录</a> </li>
+              </ul>
+            </li>
+            <!--切换主题配色-->
+        <li class="dropdown dropdown-skin">
+        <span data-toggle="dropdown" class="icon-palette"><i class="mdi mdi-palette"></i></span>
+        <ul class="dropdown-menu dropdown-menu-right" data-stopPropagation="true">
+                <li class="drop-title"><p>主题</p></li>
+                <li class="drop-skin-li clearfix">
+                  <span class="inverse">
+                    <input type="radio" name="site_theme" value="default" id="site_theme_1" checked>
+                    <label for="site_theme_1"></label>
+                  </span>
+                  <span>
+                    <input type="radio" name="site_theme" value="dark" id="site_theme_2">
+                    <label for="site_theme_2"></label>
+                  </span>
+                  <span>
+                    <input type="radio" name="site_theme" value="translucent" id="site_theme_3">
+                    <label for="site_theme_3"></label>
+                  </span>
+                </li>
+          <li class="drop-title"><p>LOGO</p></li>
+        <li class="drop-skin-li clearfix">
+                  <span class="inverse">
+                    <input type="radio" name="logo_bg" value="default" id="logo_bg_1" checked>
+                    <label for="logo_bg_1"></label>
+                  </span>
+                  <span>
+                    <input type="radio" name="logo_bg" value="color_2" id="logo_bg_2">
+                    <label for="logo_bg_2"></label>
+                  </span>
+                  <span>
+                    <input type="radio" name="logo_bg" value="color_3" id="logo_bg_3">
+                    <label for="logo_bg_3"></label>
+                  </span>
+                  <span>
+                    <input type="radio" name="logo_bg" value="color_4" id="logo_bg_4">
+                    <label for="logo_bg_4"></label>
+                  </span>
+                  <span>
+                    <input type="radio" name="logo_bg" value="color_5" id="logo_bg_5">
+                    <label for="logo_bg_5"></label>
+                  </span>
+                  <span>
+                    <input type="radio" name="logo_bg" value="color_6" id="logo_bg_6">
+                    <label for="logo_bg_6"></label>
+                  </span>
+                  <span>
+                    <input type="radio" name="logo_bg" value="color_7" id="logo_bg_7">
+                    <label for="logo_bg_7"></label>
+                  </span>
+                  <span>
+                    <input type="radio" name="logo_bg" value="color_8" id="logo_bg_8">
+                    <label for="logo_bg_8"></label>
+                  </span>
+        </li>
+        <li class="drop-title"><p>头部</p></li>
+        <li class="drop-skin-li clearfix">
+                  <span class="inverse">
+                    <input type="radio" name="header_bg" value="default" id="header_bg_1" checked>
+                    <label for="header_bg_1"></label>                      
+                  </span>                                                    
+                  <span>                                                     
+                    <input type="radio" name="header_bg" value="color_2" id="header_bg_2">
+                    <label for="header_bg_2"></label>                      
+                  </span>                                                    
+                  <span>                                                     
+                    <input type="radio" name="header_bg" value="color_3" id="header_bg_3">
+                    <label for="header_bg_3"></label>
+                  </span>
+                  <span>
+                    <input type="radio" name="header_bg" value="color_4" id="header_bg_4">
+                    <label for="header_bg_4"></label>                      
+                  </span>                                                    
+                  <span>                                                     
+                    <input type="radio" name="header_bg" value="color_5" id="header_bg_5">
+                    <label for="header_bg_5"></label>                      
+                  </span>                                                    
+                  <span>                                                     
+                    <input type="radio" name="header_bg" value="color_6" id="header_bg_6">
+                    <label for="header_bg_6"></label>                      
+                  </span>                                                    
+                  <span>                                                     
+                    <input type="radio" name="header_bg" value="color_7" id="header_bg_7">
+                    <label for="header_bg_7"></label>
+                  </span>
+                  <span>
+                    <input type="radio" name="header_bg" value="color_8" id="header_bg_8">
+                    <label for="header_bg_8"></label>
+                  </span>
+        </li>
+        <li class="drop-title"><p>侧边栏</p></li>
+        <li class="drop-skin-li clearfix">
+                  <span class="inverse">
+                    <input type="radio" name="sidebar_bg" value="default" id="sidebar_bg_1" checked>
+                    <label for="sidebar_bg_1"></label>
+                  </span>
+                  <span>
+                    <input type="radio" name="sidebar_bg" value="color_2" id="sidebar_bg_2">
+                    <label for="sidebar_bg_2"></label>
+                  </span>
+                  <span>
+                    <input type="radio" name="sidebar_bg" value="color_3" id="sidebar_bg_3">
+                    <label for="sidebar_bg_3"></label>
+                  </span>
+                  <span>
+                    <input type="radio" name="sidebar_bg" value="color_4" id="sidebar_bg_4">
+                    <label for="sidebar_bg_4"></label>
+                  </span>
+                  <span>
+                    <input type="radio" name="sidebar_bg" value="color_5" id="sidebar_bg_5">
+                    <label for="sidebar_bg_5"></label>
+                  </span>
+                  <span>
+                    <input type="radio" name="sidebar_bg" value="color_6" id="sidebar_bg_6">
+                    <label for="sidebar_bg_6"></label>
+                  </span>
+                  <span>
+                    <input type="radio" name="sidebar_bg" value="color_7" id="sidebar_bg_7">
+                    <label for="sidebar_bg_7"></label>
+                  </span>
+                  <span>
+                    <input type="radio" name="sidebar_bg" value="color_8" id="sidebar_bg_8">
+                    <label for="sidebar_bg_8"></label>
+                  </span>
+        </li>
+        </ul>
+      </li>
+            <!--切换主题配色-->
+          </ul>
+          
+        </div>
+      </nav>
+      
+    </header>
+    <!--End 头部信息-->
+    
+    <!--页面主要内容-->
+    <main class="lyear-layout-content">
+      <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <div class="content-header">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-md-12">
+                <div class="card text-sm">
+                  <div class="card-header d-flex p-0">
+                    <h3 class="card-title p-3"><div class='fas fa-edit'><b> 防火墙规则管理</b><div></h3>
+                    <ul class="nav nav-pills ml-auto p-2">
+                      <button class="btn btn-outline-primary" disabled type="button" data-toggle="modal" data-target="#modal-confirm" id="submit-modification"><small><i class="fas fa-upload"> 提交修改</i></small></button>
+                    </ul>
+                  </div>
+                  <div class="card-body p-0">
+                    <table class="table table-sm" id="firewall-rule-table">
+                      <thead>
+                        <tr>
+                          <th style="width: 6rem">ID</th>
+                          <th style="width: 7rem">源 IP</th>
+                          <th style="width: 5rem">源端口</th>
+                          <th style="width: 7rem">目的 IP</th>
+                          <th style="width: 5rem">目的端口</th>
+                          <th style="width: 4rem">动作</th>
+                          <th style="width: 6rem">创建时间</th>
+                          <th style="width: 6rem">来源</th>
+                          <th style="width: 15rem">管理<small><span class="fas fa-question-circle" style="margin:0 .2rem" 
+                                                                    data-toggle="tooltip" data-placement="bottom" data-html="true"
+                                                                    title="<small><div class='fas fa-plus'> 新建：在上方插入规则</div><br>
+                                                                                  <div class='fas fa-edit'> 编辑：修改源、目的及动作</div><br>
+                                                                                  <div class='fas fa-trash'> 删除：删除整条规则</div><br>
+                                                                                  <div class='fas fa-angle-double-up' > 上移：提升规则优先级</div></small>"></span></small></th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                      {% if rules %}
+                        {% for rule in rules %}
+                          <tr>
+                            <td><span class="rule-id">{{ rule.id }}</span></td>
+                            {% if rule.s_ip == "any" %}
+                              <td><strong><span class="rule-src-ip"><span class="text-info">{{ rule.s_ip }}</span></span></strong></td>
+                            {% else %}
+                              <td><strong><span class="rule-src-ip">{{ rule.s_ip }}</span></strong></td>
+                            {% endif %}
+                            {% if rule.s_port == "any" %}
+                              <td><strong><span class="rule-src-port"><span class="text-info">{{ rule.s_port }}</span></span></strong></td>
+                            {% else %}
+                              <td><strong><span class="rule-src-port">{{ rule.s_port }}</span></strong></td>
+                            {% endif %}
+                            {% if rule.d_ip == "any" %}
+                              <td><strong><span class="rule-dst-ip"><span class="text-info">{{ rule.d_ip }}</span></span></strong></td>
+                            {% else %}
+                              <td><strong><span class="rule-dst-ip">{{ rule.d_ip }}</span></strong></td>
+                            {% endif %}
+                            {% if rule.d_port == "any" %}
+                              <td><strong><span class="rule-dst-port"><span class="text-info">{{ rule.d_port }}</span></span></strong></td>
+                            {% else %}
+                              <td><strong><span class="rule-dst-port">{{ rule.d_port }}</span></strong></td>
+                            {% endif %}
+                            {% if rule.action == "accept" %}
+                              <td><span class="rule-action"><span class="badge bg-success">放行</span></span></td>
+                            {% elif rule.action == "redirect" %}
+                              <td><span class="rule-action"><span class="badge bg-primary">重定向</span></span></td>
+                            {% elif rule.action == "drop" %}
+                              <td><span class="rule-action"><span class="badge bg-danger">丢弃</span></span></td>
+                            {% endif %}
+                            <td><span class="rule-timestamp">{{ rule.timestamp }}</span></td>
+                            {% if rule.source == "initial" %}
+                              <td><span class="rule-source"><span class="badge bg-info">初始配置</span></span></td>
+                            {% elif rule.source == "firewall" %}
+                              <td><span class="rule-source"><span class="badge bg-maroon">防火墙</span></span></td>
+                            {% elif rule.source == "admin" %}
+                              <td><span class="rule-source"><span class="badge bg-warning">管理系统</span></span></td>
+                            {% else %}
+                              <td></td>
+                            {% endif %}
+                            <td>
+                              <a href="javascript:void(0)" class="fas fa-plus new-rule" data-toggle="modal" data-target="#modal-new-rule" style="margin:0 .5rem 0 0"><small> 新建</small></a>
+                              <a href="javascript:void(0)"  class="fas fa-edit edit-rule" data-toggle="modal" data-target="#modal-edit-rule" style="margin:0 .5rem 0 0"><small> 编辑</small></a>
+                              <a href="javascript:void(0)"  class="fas fa-trash remove-rule" style="margin:0 .5rem 0 0"><small> 删除</small></a>
+                              {% if forloop.counter != 1 %}
+                              <a href="javascript:void(0)" class="fas fa-angle-double-up up-rule" style="margin:0 0 0 1.2rem"><small> 上移</small></a>
+                            {% endif %}
+                            </td>
+                          </tr>
+                        {% endfor %}
+                      {% else %}
+                        <tr>
+                          <td><span class="rule-id"></span></td>
+                          <td><strong><span class="rule-src-ip"></span></strong></td>
+                          <td><strong><span class="rule-src-port"></span></strong></td>
+                          <td><strong><span class="rule-dst-ip"></span></strong></td>
+                          <td><strong><span class="rule-dst-port"></span></strong></td>
+                          <td><span class="rule-action"></span></td>
+                          <td><span class="rule-timestamp"></span></td>
+                          <td><span class="rule-source"></span></td>
+                          <td>
+                            <a href="javascript:void(0)" class="fas fa-plus new-rule" data-toggle="modal" data-target="#modal-new-rule" style="margin:0 .5rem 0 0"><small> 新建</small></a>
+                          </td>
+                        </tr>
+                      {% endif %}
+                      </tbody>
+                    </table>
+                  </div><!-- /.card-body -->                        
+                </div><!-- /.card -->
+              </div><!-- /.col -->
+            </div><!-- /.row -->
+
+            <!-- confirm dialog -->
+            <div class="modal fade" id="modal-confirm" style="display: none;" aria-modal="true">
+              <div class="modal-dialog modal-sm">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <div class="modal-title"><b>提交修改</b></div>
+                    <button type="button" class="close btn btn-default btn-sm" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">×</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <div class="card-body">
+                      <div class="row">
+                        <div class="col-sm-12">
+                          确认提交所有<span class="text-info"><b> 防火墙规则 </b></span>？
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="modal-footer justify-content-flex-end">
+                    <button type="button" class="btn btn-primary btn-sm" id="submit-modification-ok">确定</button>
+                  </div>
+                </div><!-- /.modal-content -->
+              </div><!-- /.modal-dialog -->
+            </div><!-- modal -->
+            <!-- edit dialog (new rule) -->
+            <div class="modal fade" id="modal-new-rule" style="display: none;" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <div class="modal-title"><b>新建防火墙规则 <span id="new-rule-id"></span><span class="text-secondary"> @ <span id="new-rule-over-id"></span></span></b></div>
+                    <button type="button" class="close btn btn-default" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">×</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <div class="card-body">
+                      <div class="row">
+                        <div class="col-sm-6">
+                          <div class="form-group">
+                            <label for="new-rule-src-ip">源 IP：</label>
+                            <div class="input-group">
+                              <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fas fa-laptop"></i></span>
+                              </div>
+                              <input type="text" class="form-control highlight-if-invalid-ip" placeholder="IP" data-inputmask="'alias': 'ip'" data-mask="" im-insert="true" id="new-rule-src-ip">
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-sm-6">
+                          <div class="form-group">
+                            <label for="new-rule-src-port">端口：</label>
+                            <input type="text" class="form-control highlight-if-invalid-port" placeholder="端口" id="new-rule-src-port">
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-sm-6">
+                          <div class="form-group">
+                            <label for="new-rule-dst-ip">目的 IP：</label>
+                            <div class="input-group">
+                              <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fas fa-laptop"></i></span>
+                              </div>
+                              <input type="text" class="form-control highlight-if-invalid-ip" placeholder="IP" data-inputmask="'alias': 'ip'" data-mask="" im-insert="true" id="new-rule-dst-ip">
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-sm-6">
+                          <div class="form-group">
+                            <label for="new-rule-dst-port">端口：</label>
+                            <input type="text" class="form-control highlight-if-invalid-port" placeholder="端口" id="new-rule-dst-port">
+                          </div>
+                        </div>
+                      </div>
+                      <div class="clearfix" style="margin-bottom:20px;"></div>
+                      <div class="row">
+                        <div class="col-sm-6">
+                          <div class="form-group">
+                            <label for="new-rule-action">动作：</label>
+                              <div class="btn-group btn-group-toggle input-group" data-toggle="buttons" id="new-rule-action">
+                                <label class="btn btn-danger btn-sm" id="new-rule-drop" data-action="drop">
+                                  <input type="radio" autocomplete="off"> 丢弃
+                                </label>
+                                <label class="btn btn-primary btn-sm" id="new-rule-redirect" data-action="redirect">
+                                  <input type="radio" autocomplete="off"> 重定向
+                                </label>
+                                <label class="btn btn-success btn-sm" id="new-rule-accept" data-action="accept">
+                                  <input type="radio" autocomplete="off"> 放行
+                                </label>
+                              </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="modal-footer justify-content-flex-end">
+                    <button type="button" class="btn btn-primary" id="new-rule-ok">确定</button>
+                  </div>
+                </div><!-- /.modal-content -->
+              </div><!-- /.modal-dialog -->
+            </div><!-- /.modal -->
+            <!-- edit dialog (edit rule) -->
+            <div class="modal fade" id="modal-edit-rule" style="display: none;" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <div class="modal-title"><b>编辑防火墙规则 <span id="edit-rule-id"></span><span class="text-secondary"> # <span id="edit-rule-over-id"></span></span></b></div>
+                    <button type="button" class="close btn btn-default" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">×</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <div class="card-body">
+                      <div class="row">
+                        <div class="col-sm-6">
+                          <div class="form-group">
+                            <label for="edit-rule-src-ip">源 IP：</label>
+                            <div class="input-group">
+                              <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fas fa-laptop"></i></span>
+                              </div>
+                              <input type="text" class="form-control highlight-if-invalid-ip" placeholder="IP" data-inputmask="'alias': 'ip'" data-mask="" im-insert="true" id="edit-rule-src-ip">
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-sm-6">
+                          <div class="form-group">
+                            <label for="edit-rule-src-port">端口：</label>
+                            <input type="text" class="form-control highlight-if-invalid-port" placeholder="端口" id="edit-rule-src-port">
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-sm-6">
+                          <div class="form-group">
+                            <label for="edit-rule-dst-ip">目的 IP：</label>
+                            <div class="input-group">
+                              <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fas fa-laptop"></i></span>
+                              </div>
+                              <input type="text" class="form-control highlight-if-invalid-ip" placeholder="IP" data-inputmask="'alias': 'ip'" data-mask="" im-insert="true" id="edit-rule-dst-ip">
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-sm-6">
+                          <div class="form-group">
+                            <label for="edit-rule-dst-port">端口：</label>
+                            <input type="text" class="form-control highlight-if-invalid-port" placeholder="端口" id="edit-rule-dst-port">
+                          </div>
+                        </div>
+                      </div>
+                      <div class="clearfix" style="margin-bottom:20px;"></div>
+                      <div class="row">
+                        <div class="col-sm-6">
+                          <div class="form-group">
+                            <label for="edit-rule-action">动作：</label>
+                              <div class="btn-group btn-group-toggle input-group" data-toggle="buttons" id="edit-rule-action">
+                                <label class="btn btn-danger btn-sm" id="edit-rule-drop" data-action="drop">
+                                  <input type="radio" autocomplete="off"> 丢弃
+                                </label>
+                                <label class="btn btn-primary btn-sm" id="edit-rule-redirect" data-action="redirect">
+                                  <input type="radio" autocomplete="off"> 重定向
+                                </label>
+                                <label class="btn btn-success btn-sm" id="edit-rule-accept" data-action="accept">
+                                  <input type="radio" autocomplete="off"> 放行
+                                </label>
+                              </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="modal-footer justify-content-flex-end">
+                    <button type="button" class="btn btn-primary" id="edit-rule-ok">确定</button>
+                  </div>
+                </div><!-- /.modal-content -->
+              </div><!-- /.modal-dialog -->
+            </div><!-- /.modal -->
+          </div><!-- /.container-fluid -->
+        </div><!-- /.content-header -->  
+    </main>
+    <!--End 页面主要内容-->
+  </div>
+  </div>
+</div>
+
+<style>
+  .tooltip-inner{text-align:left}
+</style>
+
+<script type="text/javascript" src="/static/js/jquery.min.js"></script>
+<script type="text/javascript" src="/static/js/perfect-scrollbar.min.js"></script>
+<script type="text/javascript" src="/static/js/main.min.js"></script>
+<script type="text/javascript" src="/static/js/bootstrap.min.js"></script>
+<!-- AdminLTE App -->
+<script src="{% static "dist/js/adminlte.min.js" %}"></script>
+<!-- toastr -->
+<script src="{% static "plugins/toastr/toastr.min.js" %}"></script>
+<!-- inputmask -->
+<script src="{% static "plugins/inputmask/min/jquery.inputmask.bundle.min.js" %}"></script>
+<!-- core -->
+<script src="{% static "core.js" %}"></script>
+
+<script>
+  var min_valid_rule_id = -1;
+  var edit_records = [];
+  $(function() {    
+    // enable help tooltip for management
+    $("[data-toggle='tooltip']").tooltip();
+
+    // enable ip mask for new and edit rule dialog
+    $(":input").inputmask();
+
+    // set min_valid_rule_id before edition
+    min_valid_rule_id = Math.max(getValidRuleID(), 20001);
+
+    // clear edit records
+    edit_records = [];
+
+    toastr.options = {positionClass:"toast-bottom-right",
+                      timeOut: "1500"};
+  });
+
+  /* submit modification */
+  $('#submit-modification-ok').click(function() {
+    $.ajax({
+      type: "POST",
+      url: "/web/submit/firewall_rule/",
+      data: JSON.stringify({'rules':getFirewallRuleTableData(), 'records':edit_records}),
+      beforeSend: function(xhr, settings) {
+        xhr.setRequestHeader("X-CSRFToken", "{{ csrf_token }}");
+      },
+      success: function(response) {
+        $('#modal-confirm').modal('hide');
+        // ajax won't handle redirect, any other method to force a refresh with toastr working well?
+        //window.location.href = "/core/firewall_rule";
+
+        $('#firewall-rule-table tbody tr td:contains("尚未提交")').html("<span class=\"rule-timestamp\">" + response + "</span>");
+        $('#submit-modification').attr('disabled', "");
+        toastr.success("提交修改成功");
+      },
+      error: function() {
+        $('#modal-confirm').modal('hide');
+        toastr.error("提交修改失败，请检查服务器状态");
+      }
+    });
+  });
+
+  function getFirewallRuleTableData() {
+    let rules = []
+    $('#firewall-rule-table tbody tr').each(function() {
+      let id = $(this).find('.rule-id').text();
+      if(id == "") {    // no rule remained
+        return;
+      }
+      let s_ip = $(this).find('.rule-src-ip').text();
+      let s_port = $(this).find('.rule-src-port').text();
+      let d_ip = $(this).find('.rule-dst-ip').text();
+      let d_port = $(this).find('.rule-dst-port').text();
+      let action = $(this).find('.rule-action').text();
+      action = action == "丢弃" ? "drop" : action == "重定向" ? "redirect" : "accept";
+      let timestamp = $(this).find('.rule-timestamp').text();
+      timestamp = timestamp == "尚未提交" ? "NOTIMESTAMP" : timestamp
+      let source = $(this).find('.rule-source').text();
+      source = source == "防火墙" ? "firewall" : source == "管理系统" ? "admin" : "initial";
+
+      rules.push([id, s_ip, s_port, d_ip, d_port, action, timestamp, source]);
+    })
+
+    return rules;
+  }
+
+  /* new rule */
+  $('#firewall-rule-table').on("click", '.new-rule', function() {
+    $('#new-rule-id').text(getValidRuleID());
+    $('#new-rule-over-id').text($(this).parent().siblings(':first').text());
+    $('.highlight-if-invalid-ip, .highlight-if-invalid-port').removeClass('is-invalid');
+
+    if($('#new-rule-action').find('.active').length == 0) {
+      $('#new-rule-drop').addClass('active');
+    }
+  });
+
+  $('#new-rule-ok').click(function() {
+    var s_ip = $('#new-rule-src-ip').val();
+    var s_port = $('#new-rule-src-port').val();
+    var d_ip = $('#new-rule-dst-ip').val();
+    var d_port = $('#new-rule-dst-port').val();
+
+    if(!verify(s_ip, s_port, d_ip, d_port)) {
+      return;
+    }
+    
+    // action is always valid if everything's ok
+    var action = $('#new-rule-action').find('.active').data('action');;
+
+    // make new rule
+    var new_rule_id = $('#new-rule-id').text();
+    var new_rule_over_id = $('#new-rule-over-id').text();
+    
+    var new_rule = insertNewRuleOver(new_rule_over_id, new_rule_id, s_ip, s_port, d_ip, d_port, action);
+
+    // if it's the first rule, then remove the placeholder one
+    if(new_rule.next().find('.rule-id').text() == "") {
+      new_rule.next().remove();
+      addEditRule(new_rule);
+      addRemoveRule(new_rule);
+    }
+
+    $('#modal-new-rule').modal('hide');
+    $('#submit-modification').removeAttr('disabled');
+    edit_records.push(["new rule", new_rule_over_id, new_rule_id, s_ip, s_port, d_ip, d_port, action]);
+    toastr.info("新建规则成功，本次修改尚未提交");
+  });
+
+  /* edit rule */
+  var init_edit_data;
+  $('#firewall-rule-table').on("click", '.edit-rule', function() {
+    $('#edit-rule-id').text(getValidRuleID());
+    $('#edit-rule-over-id').text($(this).parent().siblings(':first').text());
+    $('.highlight-if-invalid-ip, .highlight-if-invalid-port').removeClass('is-invalid');
+
+    var old_rule_id = $('#edit-rule-over-id').text();
+    var old_rule = $('#firewall-rule-table tbody tr td:contains("' + old_rule_id + '")').parent();
+    var old_s_ip = old_rule.find('.rule-src-ip').text();
+    var old_s_port = old_rule.find('.rule-src-port').text();
+    var old_d_ip = old_rule.find('.rule-dst-ip').text();
+    var old_d_port = old_rule.find('.rule-dst-port').text();
+
+    $('#edit-rule-src-ip').val(old_s_ip == "any" ? "0.0.0.0" : old_s_ip);
+    $('#edit-rule-src-port').val(old_s_port);
+    $('#edit-rule-dst-ip').val(old_d_ip == "any" ? "0.0.0.0" : old_d_ip);
+    $('#edit-rule-dst-port').val(old_d_port);
+
+    var old_action_text = old_rule.find('.rule-action').text();
+    var old_action, old_action_btn;
+    if(old_action_text == "放行") {
+      old_action = "accept";
+      old_action_btn = $('#edit-rule-accept');
+    }
+    else if(old_action_text == "重定向") {
+      old_action = "redirect";
+      old_action_btn = $('#edit-rule-redirect');
+    }
+    else if(old_action_text == "丢弃") {
+      old_action = "drop";
+      old_action_btn = $('#edit-rule-drop');
+    }
+    old_action_btn.addClass('active');
+    old_action_btn.siblings().removeClass('active');
+
+    // save initial data for this edit
+    init_edit_data = JSON.stringify([old_s_ip, old_s_port, old_d_ip, old_d_port, old_action]);
+    console.log("here")
+  });
+
+
+  $('#edit-rule-ok').click(function() {
+    var s_ip = $('#edit-rule-src-ip').val();
+    var s_port = $('#edit-rule-src-port').val();
+    var d_ip = $('#edit-rule-dst-ip').val();
+    var d_port = $('#edit-rule-dst-port').val();
+
+    if(!verify(s_ip, s_port, d_ip, d_port)) {
+      return;
+    }
+
+    // action is always valid if everything's ok
+    var action = $('#edit-rule-action').find('.active').data('action');
+
+    var cur_edit_data = JSON.stringify([s_ip == "0.0.0.0" ? "any" : s_ip, s_port, d_ip == "0.0.0.0" ? "any" : d_ip, d_port, action]);
+    if (cur_edit_data == init_edit_data) {
+      toastr.warning("未检测到修改");
+      return;
+    }
+    
+    // make new rule
+    var new_rule_id = $('#edit-rule-id').text();
+    var new_rule_over_id = $('#edit-rule-over-id').text();
+
+    var new_rule = insertNewRuleOver(new_rule_over_id, new_rule_id, s_ip, s_port, d_ip, d_port, action);
+    new_rule.next().remove();
+
+    $('#modal-edit-rule').modal('hide');
+    $('#submit-modification').removeAttr('disabled');
+    edit_records.push(["edit rule", new_rule_over_id, new_rule_id, s_ip, s_port, d_ip, d_port, action]);
+    toastr.info("编辑规则成功，本次修改尚未提交");
+  });
+
+  function insertNewRuleOver(new_rule_over_id, new_rule_id, s_ip, s_port, d_ip, d_port, action) {
+    var new_rule_over = $('#firewall-rule-table tbody tr td:contains("' + new_rule_over_id + '")').parent();
+    var new_rule = new_rule_over.clone();
+    new_rule.find('.rule-id').text(new_rule_id);
+    new_rule.find('.rule-src-ip').html(s_ip == "0.0.0.0" ? "<span class=\"text-info\">any</span>" : s_ip);
+    new_rule.find('.rule-src-port').html(s_port == "any" ? "<span class=\"text-info\">any</span>" : s_port);
+    new_rule.find('.rule-dst-ip').html(d_ip == "0.0.0.0" ? "<span class=\"text-info\">any</span>" : d_ip);
+    new_rule.find('.rule-dst-port').html(d_port == "any" ? "<span class=\"text-info\">any</span>" : d_port);
+    if(action == 'drop') {
+      new_rule.find('.rule-action').html("<span class=\"badge bg-danger\">丢弃</span>");
+    }
+    else if(action == 'redirect') {
+      new_rule.find('.rule-action').html("<span class=\"badge bg-primary\">重定向</span>");
+    }
+    else if(action == 'accept') {
+      new_rule.find('.rule-action').html("<span class=\"badge bg-success\">放行</span>");
+    }
+    new_rule.find('.rule-timestamp').text("尚未提交");
+    new_rule.find('.rule-source').html("<span class=\"badge bg-warning\">管理系统</span>");
+
+    // insert new rule
+    new_rule.insertBefore(new_rule_over);
+    if(new_rule.prev().length == 0) {
+      addUpRule(new_rule_over);    
+    }
+
+    return new_rule;
+  }
+  
+  function getValidRuleID() {
+    var rids = $('#firewall-rule-table tbody tr td:nth-child(1)').map(function() { return $(this).text() }).get();
+    
+    // available for current edit version (which may remove some previous rule before new) but not for the commited version
+    var available_rule_id = Math.max.apply(null, rids) + 1;
+
+    if(min_valid_rule_id == -1) {
+      min_valid_rule_id = available_rule_id;
+      return min_valid_rule_id;
+    }
+   
+    return Math.max(available_rule_id, min_valid_rule_id);
+  }
+
+  function verifyIP(ip) {
+    var reg = /^(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])\.(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])\.(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])\.(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])$/;
+    return reg.test(ip);
+  }
+
+  function verifyPort(port) {
+    if(port == "any") {
+      return true;
+    }
+
+    return (/^[1-9]\d*|0$/).test(port) && 0 <= port * 1 && port * 1 <= 65535;
+  }
+
+  function verify(s_ip, s_port, d_ip, d_port) {
+    if(!verifyIP(s_ip)) {
+      toastr.warning('无效的源 IP');
+      return false;
+    }
+    if(!verifyPort(s_port)) {
+      toastr.warning('无效的源端口');
+      return false;
+    }
+    if(!verifyIP(d_ip)) {
+      toastr.warning('无效的目的 IP');
+      return false;
+    }
+    if(!verifyPort(d_port)) {
+      toastr.warning('无效的目的端口');
+      return false;
+    }
+
+    return true;
+  }
+
+  $('.highlight-if-invalid-ip, .highlight-if-invalid-port').focus(function() {
+    $(this).removeClass('is-invalid');
+  });
+
+  $('.highlight-if-invalid-ip').blur(function() {
+    if(!verifyIP($(this).val())) {
+      $(this).addClass('is-invalid');
+    }    
+  });
+  
+  $('.highlight-if-invalid-port').blur(function() {
+    if(!verifyPort($(this).val())) {
+      $(this).addClass('is-invalid');
+    }    
+  });
+
+  /* remove rule */
+  $('#firewall-rule-table').on("click", '.remove-rule', function() {
+    var row = $(this).parent().parent();
+    var remove_rule_id = row.find('.rule-id').text()
+
+    // if the first row
+    if(row.prev().length == 0) {
+      // if the only row remained
+      if(row.next().length == 0) {
+        row.find('.rule-id, .rule-src-ip, .rule-src-port, .rule-dst-ip, .rule-dst-port, .rule-action, .rule-timestamp, .rule-source').text("");
+        row.find('.edit-rule, .remove-rule, .up-rule').remove();
+        return;
+      }
+
+      row.next().find('.up-rule').remove()
+    }
+
+    row.remove();
+
+    $('#submit-modification').removeAttr('disabled');
+    edit_records.push(["remove rule", remove_rule_id]);
+    toastr.info("删除规则成功，本次修改尚未提交");
+  });
+
+  /* up rule */
+  $('#firewall-rule-table').on("click", '.up-rule', function() {    // $('a').on() or $('.up-rule').on() is invalid
+    var row = $(this).parent().parent();
+    var up_rule_id = row.find('.rule-id').text()
+    row.insertBefore(row.prev());
+    
+    // if the second row
+    if(row.prev().length == 0) {
+      row.find('.up-rule').remove();
+      addUpRule(row.next());
+    }
+
+    $('#submit-modification').removeAttr('disabled');
+    edit_records.push(["up rule", up_rule_id]);
+    toastr.info("上移规则成功，本次修改尚未提交");
+  });
+
+  function addEditRule(row) {
+    row.find('.edit-rule').remove();
+    var edit = "<a href=\"javascript:void(0)\"  class=\"fas fa-edit edit-rule\" data-toggle=\"modal\" data-target=\"#modal-new-rule\" style=\"margin:0 .5rem 0 0\"><small> 编辑</small></a>";
+    row.find('.new-rule').parent().append($("br"));
+    row.find('.new-rule').parent().append($(edit));
+  }
+
+  function addRemoveRule(row) {
+    row.find('.remove-rule').remove();
+    var remove = "<a href=\"javascript:void(0)\"  class=\"fas fa-trash remove-rule\" style=\"margin:0 .5rem 0 0\"><small> 删除</small></a>";
+    row.find('.new-rule').parent().append($("br"));
+    row.find('.new-rule').parent().append($(remove));
+  }
+
+  function addUpRule(row) {
+    row.find('.up-rule').remove();
+    var up = "<a href=\"javascript:void(0)\" class=\"fas fa-angle-double-up up-rule\" style=\"margin:0 0 0 1.2rem\"><small> 上移</small></a>";
+    row.find('.new-rule').parent().append($("br"));
+    row.find('.new-rule').parent().append($(up));
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,473 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+<title>首页 - 悟空后台管理系统</title>
+<link rel="icon" href="/static/favicon.ico" type="image/ico">
+<meta name="keywords" content="LightYear,光年,后台模板,后台管理系统,光年HTML模板">
+<meta name="description" content="LightYear是一个基于Bootstrap v3.3.7的后台管理系统的HTML模板。">
+<meta name="author" content="yinqi">
+<link href="/static/css/bootstrap.min.css" rel="stylesheet">
+<link href="/static/css/materialdesignicons.min.css" rel="stylesheet">
+<link href="/static/css/style.min.css" rel="stylesheet">
+</head>
+  
+<body>
+<div class="lyear-layout-web">
+  <div class="lyear-layout-container">
+    <!--左侧导航-->
+    <aside class="lyear-layout-sidebar">
+      
+      <!-- logo -->
+      <div id="logo" class="sidebar-header">
+        <a href="/web/index"><img src="/static/images/logo-sidebar.png" title="LightYear" alt="LightYear" /></a>
+      </div>
+      <div class="lyear-layout-sidebar-scroll"> 
+        
+        <nav class="sidebar-main">
+          <ul class="nav nav-drawer">
+            <li class="nav-item active"> <a href="/web/index"><i class="mdi mdi-home"></i> 后台首页</a> </li>
+            <li class="nav-item nav-item-has-subnav">
+              <a href="#"><i class="mdi mdi-comment-processing-outline"></i>日志管理</a>
+              <ul class="nav nav-subnav">
+                <li> <a href="/web/firewall_log" id="firewall_log">防火墙日志</a> </li>
+                <li> <a href="/web/ids_log" id="ids_log">入侵检测日志</a> </li>
+                <li> <a href="/web/admin_log" id="admin_log">管理日志</a> </li>
+              </ul>
+            </li>
+            <li class="nav-item nav-item-has-subnav">
+              <a href="#"><i class="mdi mdi-format-align-justify"></i> 规则管理</a>
+              <ul class="nav nav-subnav">
+                <li> <a href="/web/firewall_rule" id="firewall_rule">防火墙规则</a> </li>
+                <li> <a href="/web/ids_rule" id="ids_rule">入侵检测规则</a> </li>
+              </ul>
+            </li>
+            <li class="nav-item active"> <a href="/web/traffic_statistic" id="traffic_statistic"><i class="mdi mdi-chart-bar"></i> 流量统计</a> </li>
+            <li class="nav-item active"> <a href="/web/node_state" id="node_state"><i class="mdi mdi-octagram"></i> 节点状态</a> </li>
+            <li class="nav-item active"> <a href="/web/system_test" id="system_test"><i class="mdi mdi-wrench"></i> 系统测试</a> </li>                        
+          </ul>
+        </nav>
+        
+      
+    </aside>
+    <!--End 左侧导航-->
+    
+    <!--头部信息-->
+    <header class="lyear-layout-header">
+      
+      <nav class="navbar navbar-default">
+        <div class="topbar">
+          
+          <div class="topbar-left">
+            <div class="lyear-aside-toggler">
+              <span class="lyear-toggler-bar"></span>
+              <span class="lyear-toggler-bar"></span>
+              <span class="lyear-toggler-bar"></span>
+            </div>
+            <span class="navbar-page-title"> 后台首页 </span>
+          </div>
+          
+          <ul class="topbar-right">
+            <li class="dropdown dropdown-profile">
+              <a href="javascript:void(0)" data-toggle="dropdown">
+                <img class="img-avatar img-avatar-48 m-r-10" src="/static/images/users/avatar.jpg" alt="悟空" />
+                <span>笔下光年 <span class="caret"></span></span>
+              </a>
+              <ul class="dropdown-menu dropdown-menu-right">
+                <li> <a href="lyear_pages_profile.html"><i class="mdi mdi-account"></i> 个人信息</a> </li>
+                <li> <a href="lyear_pages_edit_pwd.html"><i class="mdi mdi-lock-outline"></i> 修改密码</a> </li>
+                <li> <a href="javascript:void(0)"><i class="mdi mdi-delete"></i> 清空缓存</a></li>
+                <li class="divider"></li>
+                <li> <a href="lyear_pages_login.html"><i class="mdi mdi-logout-variant"></i> 退出登录</a> </li>
+              </ul>
+            </li>
+            <!--切换主题配色-->
+		    <li class="dropdown dropdown-skin">
+			  <span data-toggle="dropdown" class="icon-palette"><i class="mdi mdi-palette"></i></span>
+			  <ul class="dropdown-menu dropdown-menu-right" data-stopPropagation="true">
+                <li class="drop-title"><p>主题</p></li>
+                <li class="drop-skin-li clearfix">
+                  <span class="inverse">
+                    <input type="radio" name="site_theme" value="default" id="site_theme_1" checked>
+                    <label for="site_theme_1"></label>
+                  </span>
+                  <span>
+                    <input type="radio" name="site_theme" value="dark" id="site_theme_2">
+                    <label for="site_theme_2"></label>
+                  </span>
+                  <span>
+                    <input type="radio" name="site_theme" value="translucent" id="site_theme_3">
+                    <label for="site_theme_3"></label>
+                  </span>
+                </li>
+			    <li class="drop-title"><p>LOGO</p></li>
+				<li class="drop-skin-li clearfix">
+                  <span class="inverse">
+                    <input type="radio" name="logo_bg" value="default" id="logo_bg_1" checked>
+                    <label for="logo_bg_1"></label>
+                  </span>
+                  <span>
+                    <input type="radio" name="logo_bg" value="color_2" id="logo_bg_2">
+                    <label for="logo_bg_2"></label>
+                  </span>
+                  <span>
+                    <input type="radio" name="logo_bg" value="color_3" id="logo_bg_3">
+                    <label for="logo_bg_3"></label>
+                  </span>
+                  <span>
+                    <input type="radio" name="logo_bg" value="color_4" id="logo_bg_4">
+                    <label for="logo_bg_4"></label>
+                  </span>
+                  <span>
+                    <input type="radio" name="logo_bg" value="color_5" id="logo_bg_5">
+                    <label for="logo_bg_5"></label>
+                  </span>
+                  <span>
+                    <input type="radio" name="logo_bg" value="color_6" id="logo_bg_6">
+                    <label for="logo_bg_6"></label>
+                  </span>
+                  <span>
+                    <input type="radio" name="logo_bg" value="color_7" id="logo_bg_7">
+                    <label for="logo_bg_7"></label>
+                  </span>
+                  <span>
+                    <input type="radio" name="logo_bg" value="color_8" id="logo_bg_8">
+                    <label for="logo_bg_8"></label>
+                  </span>
+				</li>
+				<li class="drop-title"><p>头部</p></li>
+				<li class="drop-skin-li clearfix">
+                  <span class="inverse">
+                    <input type="radio" name="header_bg" value="default" id="header_bg_1" checked>
+                    <label for="header_bg_1"></label>                      
+                  </span>                                                    
+                  <span>                                                     
+                    <input type="radio" name="header_bg" value="color_2" id="header_bg_2">
+                    <label for="header_bg_2"></label>                      
+                  </span>                                                    
+                  <span>                                                     
+                    <input type="radio" name="header_bg" value="color_3" id="header_bg_3">
+                    <label for="header_bg_3"></label>
+                  </span>
+                  <span>
+                    <input type="radio" name="header_bg" value="color_4" id="header_bg_4">
+                    <label for="header_bg_4"></label>                      
+                  </span>                                                    
+                  <span>                                                     
+                    <input type="radio" name="header_bg" value="color_5" id="header_bg_5">
+                    <label for="header_bg_5"></label>                      
+                  </span>                                                    
+                  <span>                                                     
+                    <input type="radio" name="header_bg" value="color_6" id="header_bg_6">
+                    <label for="header_bg_6"></label>                      
+                  </span>                                                    
+                  <span>                                                     
+                    <input type="radio" name="header_bg" value="color_7" id="header_bg_7">
+                    <label for="header_bg_7"></label>
+                  </span>
+                  <span>
+                    <input type="radio" name="header_bg" value="color_8" id="header_bg_8">
+                    <label for="header_bg_8"></label>
+                  </span>
+				</li>
+				<li class="drop-title"><p>侧边栏</p></li>
+				<li class="drop-skin-li clearfix">
+                  <span class="inverse">
+                    <input type="radio" name="sidebar_bg" value="default" id="sidebar_bg_1" checked>
+                    <label for="sidebar_bg_1"></label>
+                  </span>
+                  <span>
+                    <input type="radio" name="sidebar_bg" value="color_2" id="sidebar_bg_2">
+                    <label for="sidebar_bg_2"></label>
+                  </span>
+                  <span>
+                    <input type="radio" name="sidebar_bg" value="color_3" id="sidebar_bg_3">
+                    <label for="sidebar_bg_3"></label>
+                  </span>
+                  <span>
+                    <input type="radio" name="sidebar_bg" value="color_4" id="sidebar_bg_4">
+                    <label for="sidebar_bg_4"></label>
+                  </span>
+                  <span>
+                    <input type="radio" name="sidebar_bg" value="color_5" id="sidebar_bg_5">
+                    <label for="sidebar_bg_5"></label>
+                  </span>
+                  <span>
+                    <input type="radio" name="sidebar_bg" value="color_6" id="sidebar_bg_6">
+                    <label for="sidebar_bg_6"></label>
+                  </span>
+                  <span>
+                    <input type="radio" name="sidebar_bg" value="color_7" id="sidebar_bg_7">
+                    <label for="sidebar_bg_7"></label>
+                  </span>
+                  <span>
+                    <input type="radio" name="sidebar_bg" value="color_8" id="sidebar_bg_8">
+                    <label for="sidebar_bg_8"></label>
+                  </span>
+				</li>
+			  </ul>
+			</li>
+            <!--切换主题配色-->
+          </ul>
+          
+        </div>
+      </nav>
+      
+    </header>
+    <!--End 头部信息-->
+    
+    <!--页面主要内容-->
+    <main class="lyear-layout-content">
+      
+      <div class="container-fluid">
+        
+        <div class="row">
+          <div class="col-sm-6 col-lg-3">
+            <div class="card bg-primary">
+              <div class="card-body clearfix">
+                <div class="pull-right">
+                  <p class="h6 text-white m-t-0">防火墙已运行</p>
+                  <p class="h3 text-white m-b-0 fa-1-5x" id="time-info">{{ time_info }}</p>
+                </div>
+                <div class="pull-left"> <span class="img-avatar img-avatar-48 bg-translucent"><i class="mdi mdi-watch fa-1-4x"></i></span> </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-sm-6 col-lg-3">
+            <div class="card bg-danger">
+              <div class="card-body clearfix">
+                <div class="pull-right">
+                  <p class="h6 text-white m-t-0">新增过滤规则</p>
+                  <p class="h3 text-white m-b-0 fa-1-5x">{{ rule_info }}</p>
+                </div>
+                <div class="pull-left"> <span class="img-avatar img-avatar-48 bg-translucent"><i class="mdi mdi-account fa-1-5x"></i></span> </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-sm-6 col-lg-3">
+            <div class="card bg-success">
+              <div class="card-body clearfix">
+                <div class="pull-right">
+                  <p class="h6 text-white m-t-0">捕获数据包</p>
+                  <p class="h3 text-white m-b-0 fa-1-5x">{{ packet_info }}</p>
+                </div>
+                <div class="pull-left"> <span class="img-avatar img-avatar-48 bg-translucent"><i class="mdi mdi-arrow-down-bold fa-1-5x"></i></span> </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-sm-6 col-lg-3">
+            <div class="card bg-purple">
+              <div class="card-body clearfix">
+                <div class="pull-right">
+                  <p class="h6 text-white m-t-0">已处理威胁</p>
+                  <p class="h3 text-white m-b-0 fa-1-5x">{{ threat_info }}</p>
+                </div>
+                <div class="pull-left"> <span class="img-avatar img-avatar-48 bg-translucent"><i class="mdi mdi-comment-outline fa-1-5x"></i></span> </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="row">
+          
+          <div class="col-lg-6"> 
+            <div class="card">
+              <div class="card-header">
+                <h4>处理威胁数量</h4>
+              </div>
+              <div class="card-body">
+                <canvas class="js-chartjs-bars"></canvas>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-lg-6"> 
+            <div class="card">
+              <div class="card-header">
+                <h4>数据包数量</h4>
+              </div>
+              <div class="card-body">
+                <canvas class="js-chartjs-lines"></canvas>
+              </div>
+            </div>
+          </div>
+           
+        </div>
+        
+        <div class="row">
+          
+          <div class="col-lg-12">
+            <div class="card">
+              <div class="card-header">
+                <h4>最近重要事件</h4>
+              </div>
+              <div class="card-body">
+                <div class="table-responsive">
+                {% if events %}
+                  <table class="table table-hover">
+                    <thead>
+                      <tr>
+                        <th style="width: 1rem">#</th>
+                        <th style="width: 20rem">最近重要事件
+                          <span class="badge bg-danger" style="margin:0 0 0 .3rem">TOP 10</span>
+                        </th>
+                        <th style="width: 7rem">发生时间</th>
+                        <th style="width: 4rem">报告源</th>
+                        <th style="width: 4rem">事件状态</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {% for event in events %}
+                        <tr>
+                          <td>{{ event.no }}</td>
+                          {% if event.event.type == "new rule" %}
+                            <td>新增规则 [{{ event.event.rid }}]: <strong>{{ event.event.action }} {{ event.event.src }} -- {{ event.event.dst }}</strong></td>
+                          {% elif event.event.type == "packet in" %}
+                            <td>Packet-In！</td>
+                          {% elif event.event.type == "alert" %}
+                            <td>检测到来自 <strong>{{ event.event.src }}</strong> 的 <strong>{{ event.event.attack_type }}</strong> 威胁</td>
+                          {% endif %}
+                          <td>{{ event.timestamp }}</td>
+                          {% if event.reporter == "firewall" %}
+                            <td><span class="label label-danger">&nbsp&nbsp防火墙&nbsp&nbsp</span></td>
+                          {% elif event.reporter == "ids" %}
+                            <td><span class="lable label-yellow">&nbsp&nbspIDS&nbsp&nbsp</span></td>
+                          {% endif %}
+                          <td><span class="label label-success">&nbsp&nbsp{{ event.stats }}&nbsp&nbsp</span></td>
+                        </tr>
+                      {% endfor %}
+                    </tbody>
+                  </table>
+                {% else %}
+                  <table class="table table-hover">
+                    <thead>
+                      <tr>
+                        <th style="width:100%">暂无重要事件</th>
+                      </tr>
+                    </thead>
+                  </table>
+                {% endif %}
+                </div>
+              </div>
+            </div>
+          </div>
+          
+        </div>
+        
+      </div>
+      
+    </main>
+    <!--End 页面主要内容-->
+  </div>
+</div>
+
+<script type="text/javascript" src="/static/js/jquery.min.js"></script>
+<script type="text/javascript" src="/static/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/static/js/perfect-scrollbar.min.js"></script>
+<script type="text/javascript" src="/static/js/main.min.js"></script>
+
+<!--图表插件-->
+<script type="text/javascript" src="/static/js/Chart.js"></script>
+<script type="text/javascript">
+  $(document).ready(function(e) {
+    var timezone = 8; //目标时区时间，东八区
+    var offset = new Date().getTimezoneOffset();
+    var nowDate = new Date().getTime(); // 本地时间距 1970 年 1 月 1 日午夜（GMT 时间）之间的毫秒数
+    var current_time = new Date(nowDate + offset * 60 * 1000 + timezone * 60 * 60 * 1000);
+    current_time.setDate(current_time.getDate()-7);
+    console.log(current_time)
+    var date_week = new Array()
+    for(var i=0;i<7;i++){
+      current_time.setDate(current_time.getDate()+1);
+      console.log(current_time)
+      date_week[i] = (current_time.getMonth()+1).toString()+'-'+current_time.getDate().toString();
+    }   
+    var date_hm = new Array()
+    current_time.setMinutes(current_time.getMinutes()-12);
+    for(var i=0;i<12;i++){
+      current_time.setMinutes(current_time.getMinutes()+1)
+      date_hm[i] = current_time.getHours().toString()+':'+current_time.getMinutes().toString();
+    }
+
+    var $dashChartBarsCnt  = jQuery( '.js-chartjs-bars' )[0].getContext( '2d' ),
+        $dashChartLinesCnt = jQuery( '.js-chartjs-lines' )[0].getContext( '2d' );
+    var $dashChartBarsData = {
+		labels: date_week,
+		datasets: [
+			{
+				label: '威胁数量',
+                borderWidth: 1,
+                borderColor: 'rgba(0,0,0,0)',
+				backgroundColor: 'rgba(51,202,185,0.5)',
+                hoverBackgroundColor: "rgba(51,202,185,0.7)",
+                hoverBorderColor: "rgba(0,0,0,0)",
+				data: [2500, 1500, 1200, 3200, 4800, 3500, 1500]
+			}
+		]
+	};
+    var $dashChartLinesData = {
+		labels: date_hm,
+		datasets: [
+			{
+				label: '数据包数量',
+				data: [200, 250, 400, 300, 450, 400, 550, 400, 480, 400, 420, 500],
+				borderColor: '#358ed7',
+				backgroundColor: 'rgba(53, 142, 215, 0.175)',
+                borderWidth: 1,
+                fill: false,
+                lineTension: 0.5
+			}
+		]
+	};
+    
+    new Chart($dashChartBarsCnt, {
+        type: 'bar',
+        data: $dashChartBarsData
+    });
+    
+    var myLineChart = new Chart($dashChartLinesCnt, {
+        type: 'line',
+        data: $dashChartLinesData,
+    });
+});
+</script>
+<script>
+  // count from start_time
+  var start_time = null;
+  window.onload = function() {
+      if($('#time-info').length > 0) {
+          var time = $('#time-info');
+          if(!time.is('.format')) {
+              start_time = Number(time.text());
+              count();
+              setInterval(count, 1000); 
+              time.addClass('format');    
+          }
+      }
+  }
+
+  function count() {
+      var s = new Date().getTime() / 1000 - start_time;
+      $('#time-info').html(format(s));
+  }
+
+  function format(s) {
+      var d = Math.floor(s / (24*3600));
+      var h = Math.floor((s - d*24*3600) / 3600);
+      var m = Math.floor((s - d*24*3600 - h*3600) / 60);
+      var s = Math.floor(s - d*24*3600 - h*3600 - m*60);
+
+      var text = s + "<small> 秒</small>";
+      if(m > 0) { text = m + "<small> 分</small> " + text; }
+      if(h > 0) { text = h + "<small> 小时</small> " + text; }
+      if(d > 0) { text = d + "<small> 天</small> " + text; }
+      return text;
+  }
+</script>
+</body>
+</html>

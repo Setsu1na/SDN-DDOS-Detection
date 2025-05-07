@@ -1,0 +1,346 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+<title>首页 - 悟空后台管理系统</title>
+<link rel="icon" href="/static/favicon.ico" type="image/ico">
+<meta name="keywords" content="LightYear,光年,后台模板,后台管理系统,光年HTML模板">
+<meta name="description" content="LightYear是一个基于Bootstrap v3.3.7的后台管理系统的HTML模板。">
+<meta name="author" content="yinqi">
+<link href="/static/css/bootstrap.min.css" rel="stylesheet">
+<link href="/static/css/materialdesignicons.min.css" rel="stylesheet">
+<link href="/static/css/style.min.css" rel="stylesheet">
+<!-- Font Awesome Icons -->
+<link rel="stylesheet" href="{% static "plugins/fontawesome-free/css/all.min.css" %}">
+<!-- toastr -->
+<link rel="stylesheet" href="{% static "plugins/toastr/toastr.min.css" %}">
+</head>
+  
+<body>
+<div class="lyear-layout-web">
+  <div class="lyear-layout-container">
+    <!--左侧导航-->
+    <aside class="lyear-layout-sidebar">
+      
+      <!-- logo -->
+      <div id="logo" class="sidebar-header">
+        <a href="/web/index"><img src="/static/images/logo-sidebar.png" title="LightYear" alt="LightYear" /></a>
+      </div>
+      <div class="lyear-layout-sidebar-scroll"> 
+        
+        <nav class="sidebar-main">
+          <ul class="nav nav-drawer">
+            <li class="nav-item active"> <a href="/web/index"><i class="mdi mdi-home"></i> 后台首页</a> </li>
+            <li class="nav-item nav-item-has-subnav">
+              <a href="#"><i class="mdi mdi-comment-processing-outline"></i>日志管理</a>
+              <ul class="nav nav-subnav">
+                <li> <a href="/web/firewall_log" id="firewall_log">防火墙日志</a> </li>
+                <li> <a href="/web/ids_log" id="ids_log">入侵检测日志</a> </li>
+                <li> <a href="/web/admin_log" id="admin_log">管理日志</a> </li>
+              </ul>
+            </li>
+            <li class="nav-item nav-item-has-subnav">
+              <a href="#"><i class="mdi mdi-format-align-justify"></i> 规则管理</a>
+              <ul class="nav nav-subnav">
+                <li> <a href="/web/firewall_rule" id="firewall_rule">防火墙规则</a> </li>
+                <li> <a href="/web/ids_rule" id="ids_rule">入侵检测规则</a> </li>
+              </ul>
+            </li>
+            <li class="nav-item active"> <a href="/web/traffic_statistic" id="traffic_statistic"><i class="mdi mdi-chart-bar"></i> 流量统计</a> </li>
+            <li class="nav-item active"> <a href="/web/node_state" id="node_state"><i class="mdi mdi-octagram"></i> 节点状态</a> </li>
+            <li class="nav-item active"> <a href="/web/system_test" id="system_test"><i class="mdi mdi-wrench"></i> 系统测试</a> </li>                        
+          </ul>
+        </nav>
+        
+      </div>
+      
+    </aside>
+    <!--End 左侧导航-->
+    
+    <!--头部信息-->
+    <header class="lyear-layout-header">
+      
+      <nav class="navbar navbar-default">
+        <div class="topbar">
+          
+          <div class="topbar-left">
+            <div class="lyear-aside-toggler">
+              <span class="lyear-toggler-bar"></span>
+              <span class="lyear-toggler-bar"></span>
+              <span class="lyear-toggler-bar"></span>
+            </div>
+            <span class="navbar-page-title"> 日志管理-管理日志 </span>
+          </div>
+          
+          <ul class="topbar-right">
+            <li class="dropdown dropdown-profile">
+              <a href="javascript:void(0)" data-toggle="dropdown">
+                <img class="img-avatar img-avatar-48 m-r-10" src="/static/images/users/avatar.jpg" alt="悟空" />
+                <span>悟空 <span class="caret"></span></span>
+              </a>
+              <ul class="dropdown-menu dropdown-menu-right">
+                <li> <a href="lyear_pages_profile.html"><i class="mdi mdi-account"></i> 个人信息</a> </li>
+                <li> <a href="lyear_pages_edit_pwd.html"><i class="mdi mdi-lock-outline"></i> 修改密码</a> </li>
+                <li> <a href="javascript:void(0)"><i class="mdi mdi-delete"></i> 清空缓存</a></li>
+                <li class="divider"></li>
+                <li> <a href="lyear_pages_login.html"><i class="mdi mdi-logout-variant"></i> 退出登录</a> </li>
+              </ul>
+            </li>
+            <!--切换主题配色-->
+        <li class="dropdown dropdown-skin">
+        <span data-toggle="dropdown" class="icon-palette"><i class="mdi mdi-palette"></i></span>
+        <ul class="dropdown-menu dropdown-menu-right" data-stopPropagation="true">
+                <li class="drop-title"><p>主题</p></li>
+                <li class="drop-skin-li clearfix">
+                  <span class="inverse">
+                    <input type="radio" name="site_theme" value="default" id="site_theme_1" checked>
+                    <label for="site_theme_1"></label>
+                  </span>
+                  <span>
+                    <input type="radio" name="site_theme" value="dark" id="site_theme_2">
+                    <label for="site_theme_2"></label>
+                  </span>
+                  <span>
+                    <input type="radio" name="site_theme" value="translucent" id="site_theme_3">
+                    <label for="site_theme_3"></label>
+                  </span>
+                </li>
+          <li class="drop-title"><p>LOGO</p></li>
+        <li class="drop-skin-li clearfix">
+                  <span class="inverse">
+                    <input type="radio" name="logo_bg" value="default" id="logo_bg_1" checked>
+                    <label for="logo_bg_1"></label>
+                  </span>
+                  <span>
+                    <input type="radio" name="logo_bg" value="color_2" id="logo_bg_2">
+                    <label for="logo_bg_2"></label>
+                  </span>
+                  <span>
+                    <input type="radio" name="logo_bg" value="color_3" id="logo_bg_3">
+                    <label for="logo_bg_3"></label>
+                  </span>
+                  <span>
+                    <input type="radio" name="logo_bg" value="color_4" id="logo_bg_4">
+                    <label for="logo_bg_4"></label>
+                  </span>
+                  <span>
+                    <input type="radio" name="logo_bg" value="color_5" id="logo_bg_5">
+                    <label for="logo_bg_5"></label>
+                  </span>
+                  <span>
+                    <input type="radio" name="logo_bg" value="color_6" id="logo_bg_6">
+                    <label for="logo_bg_6"></label>
+                  </span>
+                  <span>
+                    <input type="radio" name="logo_bg" value="color_7" id="logo_bg_7">
+                    <label for="logo_bg_7"></label>
+                  </span>
+                  <span>
+                    <input type="radio" name="logo_bg" value="color_8" id="logo_bg_8">
+                    <label for="logo_bg_8"></label>
+                  </span>
+        </li>
+        <li class="drop-title"><p>头部</p></li>
+        <li class="drop-skin-li clearfix">
+                  <span class="inverse">
+                    <input type="radio" name="header_bg" value="default" id="header_bg_1" checked>
+                    <label for="header_bg_1"></label>                      
+                  </span>                                                    
+                  <span>                                                     
+                    <input type="radio" name="header_bg" value="color_2" id="header_bg_2">
+                    <label for="header_bg_2"></label>                      
+                  </span>                                                    
+                  <span>                                                     
+                    <input type="radio" name="header_bg" value="color_3" id="header_bg_3">
+                    <label for="header_bg_3"></label>
+                  </span>
+                  <span>
+                    <input type="radio" name="header_bg" value="color_4" id="header_bg_4">
+                    <label for="header_bg_4"></label>                      
+                  </span>                                                    
+                  <span>                                                     
+                    <input type="radio" name="header_bg" value="color_5" id="header_bg_5">
+                    <label for="header_bg_5"></label>                      
+                  </span>                                                    
+                  <span>                                                     
+                    <input type="radio" name="header_bg" value="color_6" id="header_bg_6">
+                    <label for="header_bg_6"></label>                      
+                  </span>                                                    
+                  <span>                                                     
+                    <input type="radio" name="header_bg" value="color_7" id="header_bg_7">
+                    <label for="header_bg_7"></label>
+                  </span>
+                  <span>
+                    <input type="radio" name="header_bg" value="color_8" id="header_bg_8">
+                    <label for="header_bg_8"></label>
+                  </span>
+        </li>
+        <li class="drop-title"><p>侧边栏</p></li>
+        <li class="drop-skin-li clearfix">
+                  <span class="inverse">
+                    <input type="radio" name="sidebar_bg" value="default" id="sidebar_bg_1" checked>
+                    <label for="sidebar_bg_1"></label>
+                  </span>
+                  <span>
+                    <input type="radio" name="sidebar_bg" value="color_2" id="sidebar_bg_2">
+                    <label for="sidebar_bg_2"></label>
+                  </span>
+                  <span>
+                    <input type="radio" name="sidebar_bg" value="color_3" id="sidebar_bg_3">
+                    <label for="sidebar_bg_3"></label>
+                  </span>
+                  <span>
+                    <input type="radio" name="sidebar_bg" value="color_4" id="sidebar_bg_4">
+                    <label for="sidebar_bg_4"></label>
+                  </span>
+                  <span>
+                    <input type="radio" name="sidebar_bg" value="color_5" id="sidebar_bg_5">
+                    <label for="sidebar_bg_5"></label>
+                  </span>
+                  <span>
+                    <input type="radio" name="sidebar_bg" value="color_6" id="sidebar_bg_6">
+                    <label for="sidebar_bg_6"></label>
+                  </span>
+                  <span>
+                    <input type="radio" name="sidebar_bg" value="color_7" id="sidebar_bg_7">
+                    <label for="sidebar_bg_7"></label>
+                  </span>
+                  <span>
+                    <input type="radio" name="sidebar_bg" value="color_8" id="sidebar_bg_8">
+                    <label for="sidebar_bg_8"></label>
+                  </span>
+        </li>
+        </ul>
+      </li>
+            <!--切换主题配色-->
+          </ul>
+          
+        </div>
+      </nav>
+      
+    </header>
+    <!--End 头部信息-->
+    
+    <!--页面主要内容-->
+    <main class="lyear-layout-content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-12">
+              {% if logs %}
+                <div class="timeline">
+                  {% for time, records in logs.items %}
+                    <div class="time-label">
+                      <span class="bg-success">&nbsp;{{ time }}&nbsp;</span>
+                    </div><!-- /.timeline-label -->
+                    {% for record in records %}
+                      <div>
+                        {% if record.event.type != "edit ids rule" %}
+                          <i class="fas fa-user bg-maroon"></i>
+                          <div class="timeline-item">
+                            <span class="time"><i class="fas fa-clock"></i> {{ record.timestamp }}</span>
+                            {% if record.event.type == "new rule" %}
+                              <h3 class="timeline-header text-sm">在规则[ {{ record.event.over_rule_id }} ]上方新建防火墙规则[ {{ record.event.rule_id }} ]</h3>
+                            {% elif record.event.type == "edit rule" %}
+                              <h3 class="timeline-header text-sm">编辑防火墙规则[ {{ record.event.over_rule_id }} ]为规则[ {{ record.event.rule_id }} ]</h3>
+                            {% elif record.event.type == "remove rule" %}
+                              <h3 class="timeline-header text-sm">删除防火墙规则[ {{ record.event.rule_id }} ]</h3>
+                            {% elif record.event.type == "up rule" %}
+                              <h3 class="timeline-header text-sm">上移防火墙规则[ {{ record.event.rule_id }} ]</h3>
+                            {% endif %}
+                            
+                            {% if record.event.type == "new rule" or record.event.type == "edit rule" %}
+                            <div class="text-sm timeline-body p-1">
+                              <span class="ml-3"><b>规则[ {{ record.event.rule_id }} ]：</b>
+                              {% if record.event.action == "accept" %}
+                                <span class="badge bg-success">放行</span>
+                              {% elif record.event.action == "redirect" %}
+                                <span class="badge bg-primary">重定向</span>
+                              {% elif record.event.action == "drop" %}
+                                <span class="badge bg-danger">丢弃</span>
+                              {% endif %}
+                              </span>
+                              <strong><span class="mx-1">
+                                {% if record.event.s_ip == "any" %}
+                                  <span class="text-info">{{ record.event.s_ip }} : </span>
+                                {% else %}
+                                  {{ record.event.s_ip }} : 
+                                {% endif %}
+                                {% if record.event.s_port == "any" %}
+                                  <span class="text-info">{{ record.event.s_port }}</span>
+                                {% else %}
+                                  {{ record.event.s_port }}
+                                {% endif %}
+                              </span></strong>
+                              <span class="mx-1">--
+                              <strong><span class="mx-1">
+                                {% if record.event.d_ip == "any" %}
+                                  <span class="text-info">{{ record.event.d_ip }} : </span>
+                                {% else %}
+                                  {{ record.event.d_ip }} : 
+                                {% endif %}
+                                {% if record.event.d_port == "any" %}
+                                  <span class="text-info">{{ record.event.d_port }}</span>
+                                {% else %}
+                                  {{ record.event.d_port }}
+                                {% endif %}
+                              </span></strong>
+                            </div>
+                            {% endif %}
+                          </div>
+                        {% else %}
+                          <i class="fas fa-eye bg-warning"></i>
+                          <div class="timeline-item">
+                            <span class="time"><i class="fas fa-clock"></i> {{ record.timestamp }}</span>
+                            <h3 class="timeline-header text-sm">
+                              修改入侵检测规则：标签
+                              <b> {{ record.event.label }} </b>
+                              的响应策略改为
+                              {% if record.event.action == "alert" %}
+                                <span class="badge bg-info">告警</span>
+                              {% elif record.event.action == "redirect" %}
+                                <span class="badge bg-primary">重定向</span>
+                              {% elif record.event.action == "drop" %}
+                                <span class="badge bg-danger">丢弃</span>
+                              {% endif %}
+                            </h3>
+                          </div>
+                        {% endif %}
+                      </div>
+                    {% endfor %}
+                  {% endfor %}
+                  <div>
+                    <i class="fas fa-clock bg-gray"></i>
+                  </div>
+                </div>
+              {% else %}
+                <div class="card text-sm">
+                  <div class="card-body p-0">
+                    <table class="table">
+                      <thead>
+                        <tr>
+                          <th style="width:100%">暂无管理事件</th>
+                        </tr>
+                      </thead>
+                    </table>
+                  </div>
+                </div>
+              {% endif %}
+              </div><!-- /.card-body -->                        
+            </div><!-- /.card -->
+          </div><!-- /.col -->
+        </div>        
+      
+    </main>
+    <!--End 页面主要内容-->
+  </div>
+</div>
+
+<script type="text/javascript" src="/static/js/jquery.min.js"></script>
+<script type="text/javascript" src="/static/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/static/js/perfect-scrollbar.min.js"></script>
+<script type="text/javascript" src="/static/js/main.min.js"></script>
+
+</body>
+</html>
