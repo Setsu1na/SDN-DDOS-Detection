@@ -1,0 +1,2 @@
+pkt_id,s_ip,s_port,d_ip,d_port,label,timestamp,strategy
+1111,10.0.0.2,33654,10.0.0.1,80,SYN,07-14 14:00:11,drop

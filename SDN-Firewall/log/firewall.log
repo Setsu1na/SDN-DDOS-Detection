@@ -1,0 +1,4 @@
+event,s_ip,s_port,d_ip,d_port,action,timestamp
+alert|SYN,10.0.0.2,33654,10.0.0.1,80,,07-14 14:00:11
+new rule|10003|auto,10.0.0.2,33654,any,any,drop,07-14 14:00:11
+admin submit,,,,,,07-14 14:01:06

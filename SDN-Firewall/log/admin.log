@@ -1,0 +1,2 @@
+event,timestamp
+new rule|10003|20001|10.0.0.4|80|10.0.0.3|80|redirect,07-14 14:01:06

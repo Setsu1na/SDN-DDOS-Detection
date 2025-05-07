@@ -1,0 +1,2 @@
+pkt_id,timestamp,action,label,s_ip,s_port,d_ip,d_port,payload
+1111,07-14 14:00:11,drop,SYN,10.0.0.2,33654,10.0.0.1,80,b'K=W&K=W&K=W&K=W&K=W&K=W&K=W&K=W&K=W&K=W&K=W&K=W&K=W&K=W&K=W&K=W&K=W&K=W&K=W&K=W&K=W&K=W&K=W&K=W&K=W&K=W&K=W&K=W&K=W&K=W&K=W&K=W&K=W&K=W&K=W&K=W&K=W&K=W&K=W&K=W&K=W&K=W&K=W&K=W&K=W&K=W&K=W&K=W&K=W&K=W&K=W&K=W&K=W&K=W&K=W&K=W&K=W&K=W&K=W&K=W&K=W&K=W&K=W&K=W&K=W&K=W&K=W&K=W&K=W&K=W&K=W&K=W&K=W&K=W&K=W&K=W&K=W&K=W&K=W&K=W&K='

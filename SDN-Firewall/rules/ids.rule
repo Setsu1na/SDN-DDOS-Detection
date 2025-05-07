@@ -1,0 +1,9 @@
+label,action
+Normal,NOACTION
+PortMap,drop
+NetBIOS,drop
+LDAP,redirect
+MSSQL,drop
+UDP,redirect
+UDPLag,redirect
+SYN,drop
